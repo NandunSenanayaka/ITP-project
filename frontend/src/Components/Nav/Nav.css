@@ -1,0 +1,45 @@
+/* Nav container */
+.nav-container {
+    background: rgba(45, 40, 40, 0.5); /* Semi-transparent background for blur effect */
+    backdrop-filter: blur(8px); /* Blur effect */
+    padding: 4px 8px; /* Small padding for compact look */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    display: flex;
+    justify-content: center; /* Center the items horizontally */
+    align-items: center; /* Center items vertically */
+    height: 40px; /* Set a low height for the nav bar */
+  }
+  
+  /* Navigation list styling */
+  .home-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  /* Navigation item styling */
+  .home-li {
+    color: #333; /* Dark text color */
+    padding: 6px 12px; /* Small padding */
+    border-radius: 10px; /* Rounded corners for items */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    font-size: 14px; /* Small font size */
+    margin: 0 4px; /* Small margin between items */
+    text-align: center; /* Center text */
+  }
+  
+  /* Hover effect */
+  .home-li:hover {
+    background-color: #e8e8e8; /* Light gray for hover */
+    cursor: pointer;
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  
+  /* Active link styling */
+  .home-li.active {
+    background-color: #d0d0d0; /* Slightly darker gray for active item */
+    font-weight: bold; /* Bold text for active item */
+  }
+  
