@@ -8,7 +8,7 @@ const app =express();
 
 //middleware
 app.use(express.json());
-// app.use("/users",router);
+app.use("/nurses",router);
 
 
 mongoose.connect("mongodb+srv://admin:admin123@cluster.ugqok.mongodb.net/")
