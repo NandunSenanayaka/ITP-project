@@ -11,7 +11,8 @@ function Nav() {
                 <h1>Home</h1></Link>
             </li>
             <li className='home-li'>
-                <h1>Appoinment Shecdule</h1>
+            <Link to="/addappoinment" className='active home-a'>
+                <h1>Appoinment Shecdule</h1></Link>
             </li>
             <li className='home-li'>
                 <h1>Find app</h1>
