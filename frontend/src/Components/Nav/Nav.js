@@ -11,11 +11,14 @@ function Nav() {
                 <h1>Home</h1></Link>
             </li>
             <li className='home-li'>
-            <Link to="/addappoinment" className='active home-a'>
+                <Link to="/addappoinment" className='active home-a'>
                 <h1>Appoinment Shecdule</h1></Link>
             </li>
             <li className='home-li'>
-                <h1>Find app</h1>
+                <Link to="/appoinmentdetails" className='active home-a'>
+                
+                <h1>AppoinmetDetails</h1>
+                </Link>    
             </li>
 
         </ul>

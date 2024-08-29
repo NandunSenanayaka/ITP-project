@@ -1,8 +1,12 @@
 import React from 'react'
+import Nav from '../Nav/Nav';
 
 function AddAppoinment() {
   return (
-    <div>AddAppoinment</div>
+    <div>
+      <Nav/>
+      AddAppoinment
+    </div>
   )
 }
 

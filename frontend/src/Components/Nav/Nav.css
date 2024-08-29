@@ -1,46 +1,40 @@
-/* Nav container */
+/* Nav.css */
 .nav-container {
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-  backdrop-filter: blur(8px); /* Blur effect */
-  padding: 4px 8px; /* Small padding for compact look */
-  border-radius: 8px; /* Slightly smaller rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  display: flex;
-  justify-content: center; /* Center the items horizontally */
-  align-items: center; /* Center items vertically */
-  height: 32px; /* Smaller height for the nav bar */
+  background-color: #000000; /* Black background color */
+  padding: 10px; /* Padding around the navbar */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Slight shadow for a modern look */
+  border-radius: 8px; /* Rounded corners */
+  height: 30px; /* Low height for the nav bar */
 }
 
-/* Navigation list styling */
 .home-ul {
-  list-style-type: none;
+  list-style-type: none; /* Remove default bullet points */
   margin: 0;
   padding: 0;
-  display: flex;
+  display: flex; /* Flexbox for horizontal layout */
+  justify-content: space-around; /* Evenly space out the items */
+  align-items: center; /* Center items vertically */
 }
 
-/* Navigation item styling */
 .home-li {
-  color: #ffffff; /* White text color */
-  padding: 4px 8px; /* Small padding */
-  border-radius: 6px; /* Smaller rounded corners for items */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
-  font-size: 12px; /* Smaller font size */
-  margin: 0 2px; /* Small margin between items */
-  text-align: center; /* Center text */
+  margin: 0 10px; /* Small margin around list items */
 }
 
-/* Hover effect */
-.home-li:hover {
-  background-color: #f0f0f0; /* Light gray for hover */
-  color: #000000; /* Black text color on hover */
-  cursor: pointer;
-  transform: scale(1.05); /* Slight zoom effect */
+.home-a {
+  text-decoration: none; /* Remove underline from links */
+  color: #ffffff; /* White color for the text */
+  font-size: 16px; /* Font size */
+  font-weight: bold; /* Bold font */
+  transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
-/* Active link styling */
-.home-li.active {
-  background-color: #cccccc; /* Slightly darker gray for active item */
-  color: #000000; /* Black text color for active item */
-  font-weight: bold; /* Bold text for active item */
+.home-a:hover {
+  color: #bbbbbb; /* Slightly lighter shade on hover */
+}
+
+.home-li h1 {
+  font-size: 24px; /* Small font size for titles */
+  margin: 0; /* Remove default margin */
+  font-weight: bold; /* Bold font */
+  color: #ffffff; /* White color for the text */
 }
