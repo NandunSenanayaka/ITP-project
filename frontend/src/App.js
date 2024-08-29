@@ -2,7 +2,9 @@ import React from 'react';
 import { Route,Routes } from 'react-router-dom';
 import './App.css';
 import Home from './Components/Home/Home';
+
 import AddAppoinment from './Components/Add Appoinment/AddAppoinment';
+
 import AppoinmentDetails from './Components/Appoinment Details/AppoinmentDetails';
 
 

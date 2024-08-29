@@ -5,9 +5,11 @@ const express=require("express");
 const mongoose=require("mongoose");
 const router = require("../BACKEND/Routes/NurseRoutes")
 const app =express();
+const cors = require("cors");
 
 //middleware
 app.use(express.json());
+app.use(cors());
 app.use("/nurses",router);
 
 

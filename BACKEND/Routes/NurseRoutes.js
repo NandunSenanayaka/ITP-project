@@ -13,3 +13,4 @@ router.delete("/:id",NurseControler.deleteNurse);
 
 //export
 module.exports=router;
+
