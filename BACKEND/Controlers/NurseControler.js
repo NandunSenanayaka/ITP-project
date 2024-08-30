@@ -1,25 +1,38 @@
 const nurse =require("../Model/NurseModel");
 
 
-//data display
-const getAllNurses = async(req,res,next)=>{
+// //data display
+// const getAllNurses = async(req,res,next)=>{
+//     let nurses;
+
+//     try{
+//         nurses= await nurse.find();
+
+//     }
+//     catch(err){
+//         console.log(err);
+
+//     }
+//     //not found
+//     if(!nurses){
+//         return res.status(404).json({message :"nurse"})
+//     }
+//     //disply all user
+//     return res.status(200).json({nurses});
+// };
+const getAllNurses = async (req, res, next) => {
     let nurses;
-
-    try{
-        nurses= await nurse.find();
-
-    }
-    catch(err){
+    try {
+        nurses = await nurse.find();
+    } catch (err) {
         console.log(err);
+        return res.status(500).json({ message: "Error fetching nurses" });
+    }
 
-    }
-    //not found
-    if(!nurses){
-        return res.status(404).json({message :"nurse"})
-    }
-    //disply all user
-    return res.status(200).json({nurses});
+    // Return all nurses
+    return res.status(200).json({ nurses });
 };
+
 
 //data insert
 const addnurses=async(req,res,next)=>{
@@ -64,19 +77,40 @@ const getById = async (req, res, next) => {
 };
 
 //Update user details
-const UpdateNurse = async (req,res,next) =>{
+// const UpdateNurse = async (req,res,next) =>{
 
-    const id=req.params.id;
-    const{name,nic,email,phone,appnumber,rnumber,time,diseases,discription}=req.body;
+//     const id=req.params.id;
+//     const{name,nic,email,phone,appnumber,rnumber,time,diseases,discription}=req.body;
+
+//     let nurses;
+
+//     try{
+//         nurses=await nurse.findByIdAndUpdate(id,
+//             {name:name,nic:nic,email:email,phone:phone,appnumber:appnumber,rnumber:rnumber,time:time,diseases:diseases,discription:discription});
+//             nurses = await nurse.save();
+//     }catch(err){
+//         console.log(err);
+//     }
+
+//     if (!nurses) {
+//         return res.status(404).json({ message: "Unable to update details" });
+//     }
+
+//     return res.status(200).json({ nurses });
+
+// };
+const UpdateNurse = async (req, res, next) => {
+    const id = req.params.id;
+    const { name, nic, email, phone, appnumber, rnumber, time, diseases, discription } = req.body;
 
     let nurses;
-
-    try{
-        nurses=await nurse.findByIdAndUpdate(id,
-            {name:name,nic:nic,email:email,phone:phone,appnumber:appnumber,rnumber:rnumber,time:time,diseases:diseases,discription:discription});
-            nurses = await nurse.save();
-    }catch(err){
+    try {
+        nurses = await nurse.findByIdAndUpdate(id, {
+            name, nic, email, phone, appnumber, rnumber, time, diseases, discription
+        }, { new: true });
+    } catch (err) {
         console.log(err);
+        return res.status(500).json({ message: "Error updating nurse" });
     }
 
     if (!nurses) {
@@ -84,8 +118,8 @@ const UpdateNurse = async (req,res,next) =>{
     }
 
     return res.status(200).json({ nurses });
-
 };
+
 
 //Delete User Details
 const deleteNurse = async (req,res,next) =>{

@@ -2,10 +2,11 @@ import React from 'react';
 import { Route,Routes } from 'react-router-dom';
 import './App.css';
 import Home from './Components/Home/Home';
+import { Link } from 'react-router-dom'; // Remove this if not used
 
-import AddAppoinment from './Components/Add Appoinment/AddAppoinment';
 
-import AppoinmentDetails from './Components/Appoinment Details/AppoinmentDetails';
+import AddNurse from './Components/AddNurse/AddNurse';
+import NurseDetails from './Components/NurseDetails/NurseDetails';
 
 
 function App() {
@@ -17,8 +18,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/mainhome' element={<Home/>}/> 
-          <Route path='/addappoinment' element={<AddAppoinment/>}/> 
-          <Route path='/appoinmentdetails' element={<AppoinmentDetails/>}/> 
+          <Route path='/addappoinment' element={<AddNurse/>}/> 
+          <Route path='/appoinmentdetails' element={<NurseDetails/>}/> 
         </Routes>
 
       </React.Fragment>
