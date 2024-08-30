@@ -3,35 +3,7 @@ import Nav from '../Nav/Nav';
 import axios from 'axios';
 import NurseDetail from './NurseDetail';
 
-// const URL = "http://localhost:5000/nurses";
 
-// const fetchHandler = async () => {
-//   return await axios.get(URL).then((res) => res.data);
-// };
-
-// function NurseDetails() {
-//   const [nurseDetails, setNurseDetails] = useState([]);
-
-//   useEffect(() => {
-//     fetchHandler().then((data) => setNurseDetails(data.nurseDetails || []));
-//   }, []);
-
-//   return (
-//     <div>
-//       <Nav />
-//       <h1>Nurse Details Display Page</h1>
-//       <div>
-//         {nurseDetails && nurseDetails.map((nurseDetail, i) => (
-//           <div key={i}>
-//             <NurseDetail {...nurseDetail} />
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default NurseDetails;
 const URL = "http://localhost:5000/nurses";
 
 const fetchHandler = async () => {
