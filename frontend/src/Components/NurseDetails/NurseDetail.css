@@ -1,0 +1,57 @@
+/* NurseDetail.css */
+.nurse-detail-container {
+    background-color: #ffffff; /* White background for a clean look */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding around the content */
+    max-width: 800px; /* Maximum width of the detail container */
+    margin: 20px auto; /* Center align with margin */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  }
+  
+  .nurse-detail-container h1 {
+    font-size: 18px; /* Font size for detail headings */
+    color: #333333; /* Dark text color for readability */
+    margin: 10px 0; /* Margin for spacing */
+  }
+  
+  .nurse-detail-container h1:first-of-type {
+    font-size: 24px; /* Larger font size for the main title */
+    color: #007bff; /* Blue color for emphasis */
+    text-align: center; /* Center align the title */
+  }
+  
+  .nurse-detail-container button {
+    background-color: #007bff; /* Blue background for buttons */
+    border: none; /* Remove border */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Padding inside the button */
+    margin: 10px; /* Margin around the button */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  .nurse-detail-container button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .nurse-detail-container button:active {
+    background-color: #00408a; /* Even darker blue on click */
+  }
+  
+  @media (max-width: 768px) {
+    .nurse-detail-container {
+      padding: 15px; /* Adjust padding for smaller screens */
+    }
+  
+    .nurse-detail-container h1 {
+      font-size: 16px; /* Slightly smaller font size for smaller screens */
+    }
+  
+    .nurse-detail-container button {
+      padding: 8px 16px; /* Adjust button padding */
+      font-size: 14px; /* Smaller font size for buttons */
+    }
+  }
+  
