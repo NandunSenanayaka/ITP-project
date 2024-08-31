@@ -31,7 +31,7 @@ function AddNurse() {
     sendRequest()
       .then(() => {
         alert("Data saved successfully!");
-        navigate("/appointmentdetails");
+        navigate("/appoinmentdetails");
       })
       .catch((error) => {
         alert("Failed to save data. Please try again.");
@@ -40,9 +40,8 @@ function AddNurse() {
   };
 
   const sendRequest = async () => {
-    try {
-      const response = await axios.post("http://localhost:5000/nurses", {
-        name: inputs.name,
+    const data = {
+      name: inputs.name,
         nic: inputs.nic,
         email: inputs.email,
         phone: Number(inputs.phone),
@@ -51,7 +50,11 @@ function AddNurse() {
         time: inputs.time,
         diseases: inputs.diseases,
         description: inputs.description,
-      });
+    }
+    console.log(data)
+    try {
+      const response = await axios.post("http://localhost:5000/nurses", data);
+      console.log("dsfsdfsdfsdfs");
       console.log(response.data); // Log the response data for debugging
       return response.data;
     } catch (error) {

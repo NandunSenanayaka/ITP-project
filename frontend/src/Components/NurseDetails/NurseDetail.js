@@ -3,7 +3,7 @@ import Nav from '../Nav/Nav';
 import './NurseDetail.css'; // Import the CSS file
 
 
-function NurseDetail({ _id, name, nic, email, phone, appnumber, rnumber, time, diseases, discription }) {
+function NurseDetail({ _id, name, nic, email, phone, appnumber, rnumber, time, diseases, description }) {
   return (
     <div className="nurse-detail-container">
       <h1>Display Details</h1>
@@ -17,7 +17,7 @@ function NurseDetail({ _id, name, nic, email, phone, appnumber, rnumber, time, d
       <h1>Room Number: {rnumber}</h1>
       <h1>Time: {time}</h1>
       <h1>Diseases: {diseases}</h1>
-      <h1>Description: {discription || 'N/A'}</h1> {/* Display 'N/A' if discription is empty */}
+      <h1>Description: {description || 'N/A'}</h1> {/* Display 'N/A' if discription is empty */}
       <div>
         <button>Update</button>
         <button>Delete</button>

@@ -20,12 +20,12 @@ const getAllNurses = async (req, res, next) => {
 //data insert
 const addnurses=async(req,res,next)=>{
 
-    const {name,nic,email,phone,appnumber,rnumber,time,diseases,discription}=req.body;
+    const {name,nic,email,phone,appnumber,rnumber,time,diseases,description}=req.body;
 
     let nurses;
 
     try{
-        nurses= new nurse({name,nic,email,phone,appnumber,rnumber,time,diseases,discription});
+        nurses= new nurse({name,nic,email,phone,appnumber,rnumber,time,diseases,description});
         await nurses.save();
     }catch(err){
         console.log(err);
@@ -62,12 +62,12 @@ const getById = async (req, res, next) => {
 
 const UpdateNurse = async (req, res, next) => {
     const id = req.params.id;
-    const { name, nic, email, phone, appnumber, rnumber, time, diseases, discription } = req.body;
+    const { name, nic, email, phone, appnumber, rnumber, time, diseases, description } = req.body;
 
     let nurses;
     try {
         nurses = await nurse.findByIdAndUpdate(id, {
-            name, nic, email, phone, appnumber, rnumber, time, diseases, discription
+            name, nic, email, phone, appnumber, rnumber, time, diseases, description
         }, { new: true });
     } catch (err) {
         console.log(err);
