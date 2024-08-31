@@ -2,24 +2,7 @@ const nurse =require("../Model/NurseModel");
 
 
 // //data display
-// const getAllNurses = async(req,res,next)=>{
-//     let nurses;
 
-//     try{
-//         nurses= await nurse.find();
-
-//     }
-//     catch(err){
-//         console.log(err);
-
-//     }
-//     //not found
-//     if(!nurses){
-//         return res.status(404).json({message :"nurse"})
-//     }
-//     //disply all user
-//     return res.status(200).json({nurses});
-// };
 const getAllNurses = async (req, res, next) => {
     let nurses;
     try {
@@ -76,29 +59,7 @@ const getById = async (req, res, next) => {
     return res.status(200).json({ nurse1 });
 };
 
-//Update user details
-// const UpdateNurse = async (req,res,next) =>{
 
-//     const id=req.params.id;
-//     const{name,nic,email,phone,appnumber,rnumber,time,diseases,discription}=req.body;
-
-//     let nurses;
-
-//     try{
-//         nurses=await nurse.findByIdAndUpdate(id,
-//             {name:name,nic:nic,email:email,phone:phone,appnumber:appnumber,rnumber:rnumber,time:time,diseases:diseases,discription:discription});
-//             nurses = await nurse.save();
-//     }catch(err){
-//         console.log(err);
-//     }
-
-//     if (!nurses) {
-//         return res.status(404).json({ message: "Unable to update details" });
-//     }
-
-//     return res.status(200).json({ nurses });
-
-// };
 const UpdateNurse = async (req, res, next) => {
     const id = req.params.id;
     const { name, nic, email, phone, appnumber, rnumber, time, diseases, discription } = req.body;

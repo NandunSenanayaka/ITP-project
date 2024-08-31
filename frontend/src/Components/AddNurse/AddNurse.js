@@ -1,4 +1,5 @@
-// export default AddNurse;
+
+
 import React, { useState } from "react";
 import axios from "axios";
 import Nav from "../Nav/Nav";
@@ -15,7 +16,7 @@ function AddNurse() {
     rnumber: "",
     time: "",
     diseases: "",
-    discription: "", // Updated field name
+    description: "",
   });
 
   const handleChange = (e) => {
@@ -29,27 +30,34 @@ function AddNurse() {
     e.preventDefault();
     sendRequest()
       .then(() => {
-        navigate("/appoinmentdetails");
+        alert("Data saved successfully!");
+        navigate("/appointmentdetails");
       })
       .catch((error) => {
+        alert("Failed to save data. Please try again.");
         console.error("Navigation skipped due to error:", error);
       });
   };
 
   const sendRequest = async () => {
-    await axios
-      .post("http://localhost:5000/nurses", {
-        name: String(inputs.name),
-        nic: String(inputs.nic),
-        email: String(inputs.email),
+    try {
+      const response = await axios.post("http://localhost:5000/nurses", {
+        name: inputs.name,
+        nic: inputs.nic,
+        email: inputs.email,
         phone: Number(inputs.phone),
         appnumber: Number(inputs.appnumber),
         rnumber: Number(inputs.rnumber),
-        time: String(inputs.time),
-        diseases: String(inputs.diseases),
-        discription: String(inputs.discription), // Updated field name
-      })
-      .then((res) => res.data);
+        time: inputs.time,
+        diseases: inputs.diseases,
+        description: inputs.description,
+      });
+      console.log(response.data); // Log the response data for debugging
+      return response.data;
+    } catch (error) {
+      console.error("Error sending request:", error); // Log the error for debugging
+      throw error;
+    }
   };
 
   return (
@@ -149,12 +157,11 @@ function AddNurse() {
         <br />
         <input
           type="text"
-          name="description" // Corrected field name
+          name="description"
           onChange={handleChange}
           value={inputs.description}
           required
         />
-
         <br />
         <br />
         <button type="submit">Submit</button>

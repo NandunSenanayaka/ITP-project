@@ -1,48 +1,45 @@
+
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema; // Use uppercase 'S' for Schema
-
-
+const Schema = mongoose.Schema;
 
 const nurseSchema = new Schema({
     name: {
-        type: String, // data type
-        required: true, // validation
+        type: String,
+        required: true,
     },
     nic: {
-        type: String, // data type
-        required: true, // validation
+        type: String,
+        required: true,
     },
     email: {
-        type: String, // data type
-        required: true, // validation
+        type: String,
+        required: true,
     },
     phone: {
-        type: Number, // data type
-        required: true, // validation
+        type: Number,
+        required: true,
     },
     appnumber: {
-        type: Number, // data type
-        required: true, // validation
+        type: Number,
+        required: true,
     },
     rnumber: {
-        type: Number, // data type
-        required: true, // validation
+        type: Number,
+        required: true,
     },
     time: {
-        type: String, // data type
-        required: true, // validation
+        type: String,
+        required: true,
     },
     diseases: {
-        type: String, // data type
-        required: true, // validation
+        type: String,
+        required: true,
     },
-    discription: {
-        type: String, // data type
-        required: true, // validation
+    description: { // Updated field name
+        type: String,
+        required: true,
     }
 });
 
-module.exports = mongoose.model(
-    "NurseModel", // collection name
-    nurseSchema // schema name
-);
+module.exports = mongoose.model("NurseModel", nurseSchema);
+

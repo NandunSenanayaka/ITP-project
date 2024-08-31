@@ -1,24 +1,6 @@
-// import React from 'react'
-// import Nav from "../Nav/Nav";
-
-// function Home() {
-//   return (
-//     <div>
-//       <Nav/>
-//         <h1>Home Components</h1>
-//     </div>
-    
-//   )
-// }
-
-// export default Home
-
-
-import React from 'react'
-import Nav from "../Nav/Nav";
-import { FaInstagram, FaLinkedin, FaYoutube, FaFacebook } from 'react-icons/fa';
+import React from 'react';
 import './Home.css';
-
+import { FaInstagram, FaLinkedin, FaYoutube, FaFacebook } from 'react-icons/fa';
 
 
 import IMG1 from "../Assets/Doctor 1.png"
@@ -28,9 +10,7 @@ import Logo from "../Assets/HeroLogo.png"
 
 const Home = () => {
   return (
-    
     <div className="home-container">
-      <Nav/>
       {/* Header Section */}
       <header className="header">
       <img alt="" className="logo-nav" src={Logo} /> 
@@ -106,12 +86,12 @@ const Home = () => {
             </ul>
           </div>
         </div>
-        {/* <div className="social-media">
+        <div className="social-media">
           <a href="#"><FaInstagram size={24} /></a>
           <a href="#"><FaLinkedin size={24} /></a>
           <a href="#"><FaYoutube size={24} /></a>
           <a href="#"><FaFacebook size={24} /></a>
-        </div> */}
+        </div>
       </footer>
 
       <div className='copy-right'>
