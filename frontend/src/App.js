@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'; // Remove this if not used
 
 import AddNurse from './Components/AddNurse/AddNurse';
 import NurseDetails from './Components/NurseDetails/NurseDetails';
+import UpdateNurse from './Components/UpdateNurse/UpdateNurse';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path='/mainhome' element={<Home/>}/> 
           <Route path='/addappoinment' element={<AddNurse/>}/> 
           <Route path='/appoinmentdetails' element={<NurseDetails/>}/> 
+          <Route path='/appoinmentdetails/:id' element={<UpdateNurse/>}/> 
         </Routes>
 
       </React.Fragment>

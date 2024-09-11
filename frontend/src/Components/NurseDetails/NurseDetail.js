@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from '../Nav/Nav';
+import { Link } from 'react-router-dom';
 import './NurseDetail.css'; // Import the CSS file
 
 
@@ -19,7 +20,7 @@ function NurseDetail({ _id, name, nic, email, phone, appnumber, rnumber, time, d
       <h1>Diseases: {diseases}</h1>
       <h1>Description: {description || 'N/A'}</h1> {/* Display 'N/A' if discription is empty */}
       <div>
-        <button>Update</button>
+        <Link to={`/appoinmentdetails/${_id}`}>Update</Link>
         <button>Delete</button>
       </div>
     </div>
