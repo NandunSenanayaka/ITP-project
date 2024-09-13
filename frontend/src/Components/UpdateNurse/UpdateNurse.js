@@ -1,20 +1,20 @@
-
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useParams } from 'react-router';
-import { useNavigate } from 'react-router';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router";
+import { useNavigate } from "react-router";
 
 function UpdateNurse() {
   const [inputs, setInputs] = useState({
-    name: '',
-    nic: '',
-    email: '',
-    phone: '',
-    appnumber: '',
-    rnumber: '',
-    time: '',
-    diseases: '',
-    description: ''
+    id: null,
+    name: "",
+    nic: "",
+    email: "",
+    phone: "",
+    appnumber: "",
+    rnumber: "",
+    time: "",
+    diseases: "",
+    description: "",
   });
   const history = useNavigate();
   const { id } = useParams();
@@ -22,10 +22,12 @@ function UpdateNurse() {
   useEffect(() => {
     const fetchHandler = async () => {
       await axios
+
         .get(`http://localhost:5000/nurses/${id}`)
         .then((res) => res.data)
-        .then((data) => setInputs(data.nurse || {})); // Added fallback for undefined
+        .then((data) => setInputs(data.nurse1 || {})); // Added fallback for undefined
     };
+
     fetchHandler();
   }, [id]);
 
@@ -55,7 +57,7 @@ function UpdateNurse() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(inputs);
-    sendRequest().then(() => history('/appoinmentdetails'));
+    sendRequest().then(() => history("/appoinmentdetails"));
   };
 
   return (
@@ -68,7 +70,7 @@ function UpdateNurse() {
           type="text"
           name="name"
           onChange={handleChange}
-          value={inputs.name || ''} // Prevents undefined values
+          value={inputs.name || ""} // Prevents undefined values
           required
         />
         <br />
@@ -79,7 +81,7 @@ function UpdateNurse() {
           type="text"
           name="nic"
           onChange={handleChange}
-          value={inputs.nic || ''} // Prevents undefined values
+          value={inputs.nic || ""} // Prevents undefined values
           required
         />
         <br />
@@ -90,7 +92,7 @@ function UpdateNurse() {
           type="email"
           name="email"
           onChange={handleChange}
-          value={inputs.email || ''} // Prevents undefined values
+          value={inputs.email || ""} // Prevents undefined values
           required
         />
         <br />
@@ -101,7 +103,7 @@ function UpdateNurse() {
           type="number"
           name="phone"
           onChange={handleChange}
-          value={inputs.phone || ''} // Prevents undefined values
+          value={inputs.phone || ""} // Prevents undefined values
           required
         />
         <br />
@@ -112,7 +114,7 @@ function UpdateNurse() {
           type="number"
           name="appnumber"
           onChange={handleChange}
-          value={inputs.appnumber || ''} // Prevents undefined values
+          value={inputs.appnumber || ""} // Prevents undefined values
           required
         />
         <br />
@@ -123,7 +125,7 @@ function UpdateNurse() {
           type="number"
           name="rnumber"
           onChange={handleChange}
-          value={inputs.rnumber || ''} // Prevents undefined values
+          value={inputs.rnumber || ""} // Prevents undefined values
           required
         />
         <br />
@@ -134,7 +136,7 @@ function UpdateNurse() {
           type="time"
           name="time"
           onChange={handleChange}
-          value={inputs.time || ''} // Prevents undefined values
+          value={inputs.time || ""} // Prevents undefined values
           required
         />
         <br />
@@ -145,7 +147,7 @@ function UpdateNurse() {
           type="text"
           name="diseases"
           onChange={handleChange}
-          value={inputs.diseases || ''} // Prevents undefined values
+          value={inputs.diseases || ""} // Prevents undefined values
           required
         />
         <br />
@@ -156,7 +158,7 @@ function UpdateNurse() {
           type="text"
           name="description"
           onChange={handleChange}
-          value={inputs.description || ''} // Prevents undefined values
+          value={inputs.description || ""} // Prevents undefined values
           required
         />
         <br />
