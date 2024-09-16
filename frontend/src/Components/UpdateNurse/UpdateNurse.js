@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router";
+import './UpdateNurse.css'; // Import the CSS file
 
 function UpdateNurse() {
   const [inputs, setInputs] = useState({
@@ -61,109 +62,110 @@ function UpdateNurse() {
   };
 
   return (
-    <div>
+    
+    <div className="update-container">
       <h1>Update Nurse Details</h1>
       <form onSubmit={handleSubmit}>
-        <label>Name</label>
-        <br />
-        <input
-          type="text"
-          name="name"
-          onChange={handleChange}
-          value={inputs.name || ""} // Prevents undefined values
-          required
-        />
-        <br />
-        <br />
-        <label>NIC</label>
-        <br />
-        <input
-          type="text"
-          name="nic"
-          onChange={handleChange}
-          value={inputs.nic || ""} // Prevents undefined values
-          required
-        />
-        <br />
-        <br />
-        <label>Email</label>
-        <br />
-        <input
-          type="email"
-          name="email"
-          onChange={handleChange}
-          value={inputs.email || ""} // Prevents undefined values
-          required
-        />
-        <br />
-        <br />
-        <label>Phone Number</label>
-        <br />
-        <input
-          type="number"
-          name="phone"
-          onChange={handleChange}
-          value={inputs.phone || ""} // Prevents undefined values
-          required
-        />
-        <br />
-        <br />
-        <label>Appointment Number</label>
-        <br />
-        <input
-          type="number"
-          name="appnumber"
-          onChange={handleChange}
-          value={inputs.appnumber || ""} // Prevents undefined values
-          required
-        />
-        <br />
-        <br />
-        <label>Room Number</label>
-        <br />
-        <input
-          type="number"
-          name="rnumber"
-          onChange={handleChange}
-          value={inputs.rnumber || ""} // Prevents undefined values
-          required
-        />
-        <br />
-        <br />
-        <label>Time</label>
-        <br />
-        <input
-          type="time"
-          name="time"
-          onChange={handleChange}
-          value={inputs.time || ""} // Prevents undefined values
-          required
-        />
-        <br />
-        <br />
-        <label>Diseases</label>
-        <br />
-        <input
-          type="text"
-          name="diseases"
-          onChange={handleChange}
-          value={inputs.diseases || ""} // Prevents undefined values
-          required
-        />
-        <br />
-        <br />
-        <label>Description</label>
-        <br />
-        <input
-          type="text"
-          name="description"
-          onChange={handleChange}
-          value={inputs.description || ""} // Prevents undefined values
-          required
-        />
-        <br />
-        <br />
-        <button type="submit">Submit</button>
+        <div className="form-group">
+          <label>Name</label>
+          <input
+            type="text"
+            name="name"
+            onChange={handleChange}
+            value={inputs.name || ""}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>NIC</label>
+          <input
+            type="text"
+            name="nic"
+            onChange={handleChange}
+            value={inputs.nic || ""}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            onChange={handleChange}
+            value={inputs.email || ""}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Phone Number</label>
+          <input
+            type="number"
+            name="phone"
+            onChange={handleChange}
+            value={inputs.phone || ""}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Appointment Number</label>
+          <input
+            type="number"
+            name="appnumber"
+            onChange={handleChange}
+            value={inputs.appnumber || ""}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Room Number</label>
+          <input
+            type="number"
+            name="rnumber"
+            onChange={handleChange}
+            value={inputs.rnumber || ""}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Time</label>
+          <input
+            type="time"
+            name="time"
+            onChange={handleChange}
+            value={inputs.time || ""}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Diseases</label>
+          <input
+            type="text"
+            name="diseases"
+            onChange={handleChange}
+            value={inputs.diseases || ""}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Description</label>
+          <input
+            type="text"
+            name="description"
+            onChange={handleChange}
+            value={inputs.description || ""}
+            required
+          />
+        </div>
+
+        <button type="submit" className="submit-btn">Submit</button>
       </form>
     </div>
   );

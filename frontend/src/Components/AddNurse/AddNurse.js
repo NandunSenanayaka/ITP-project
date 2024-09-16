@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Nav from "../Nav/Nav";
+import './AddNurse.css';
 import { useNavigate } from "react-router-dom";
 
 function AddNurse() {
@@ -66,109 +67,111 @@ function AddNurse() {
   return (
     <div>
       <Nav />
-      <h1>Add Details</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Name</label>
-        <br />
-        <input
-          type="text"
-          name="name"
-          onChange={handleChange}
-          value={inputs.name}
-          required
-        />
-        <br />
-        <br />
-        <label>NIC</label>
-        <br />
-        <input
-          type="text"
-          name="nic"
-          onChange={handleChange}
-          value={inputs.nic}
-          required
-        />
-        <br />
-        <br />
-        <label>Email</label>
-        <br />
-        <input
-          type="email"
-          name="email"
-          onChange={handleChange}
-          value={inputs.email}
-          required
-        />
-        <br />
-        <br />
-        <label>Phone Number</label>
-        <br />
-        <input
-          type="number"
-          name="phone"
-          onChange={handleChange}
-          value={inputs.phone}
-          required
-        />
-        <br />
-        <br />
-        <label>Appointment Number</label>
-        <br />
-        <input
-          type="number"
-          name="appnumber"
-          onChange={handleChange}
-          value={inputs.appnumber}
-          required
-        />
-        <br />
-        <br />
-        <label>Room Number</label>
-        <br />
-        <input
-          type="number"
-          name="rnumber"
-          onChange={handleChange}
-          value={inputs.rnumber}
-          required
-        />
-        <br />
-        <br />
-        <label>Time</label>
-        <br />
-        <input
-          type="time"
-          name="time"
-          onChange={handleChange}
-          value={inputs.time}
-          required
-        />
-        <br />
-        <br />
-        <label>Diseases</label>
-        <br />
-        <input
-          type="text"
-          name="diseases"
-          onChange={handleChange}
-          value={inputs.diseases}
-          required
-        />
-        <br />
-        <br />
-        <label>Description</label>
-        <br />
-        <input
-          type="text"
-          name="description"
-          onChange={handleChange}
-          value={inputs.description}
-          required
-        />
-        <br />
-        <br />
-        <button type="submit">Submit</button>
-      </form>
+      <div className="form-container">
+        <h1>Add Nurse Details</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Name</label>
+            <input
+              type="text"
+              name="name"
+              onChange={handleChange}
+              value={inputs.name}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>NIC</label>
+            <input
+              type="text"
+              name="nic"
+              onChange={handleChange}
+              value={inputs.nic}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              onChange={handleChange}
+              value={inputs.email}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Phone Number</label>
+            <input
+              type="number"
+              name="phone"
+              onChange={handleChange}
+              value={inputs.phone}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Appointment Number</label>
+            <input
+              type="number"
+              name="appnumber"
+              onChange={handleChange}
+              value={inputs.appnumber}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Room Number</label>
+            <input
+              type="number"
+              name="rnumber"
+              onChange={handleChange}
+              value={inputs.rnumber}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Time</label>
+            <input
+              type="time"
+              name="time"
+              onChange={handleChange}
+              value={inputs.time}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Diseases</label>
+            <input
+              type="text"
+              name="diseases"
+              onChange={handleChange}
+              value={inputs.diseases}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Description</label>
+            <input
+              type="text"
+              name="description"
+              onChange={handleChange}
+              value={inputs.description}
+              required
+            />
+          </div>
+
+          <button type="submit" className="submit-btn">Submit</button>
+        </form>
+      </div>
     </div>
   );
 }
