@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState ,useRef} from 'react';
 import Nav from '../Nav/Nav';
 import axios from 'axios';
 import NurseDetail from './NurseDetail';
+import {useReactToPrint} from "react-to-print";
+
+
 
 
 const URL = "http://localhost:5000/nurses";
@@ -25,20 +28,40 @@ function NurseDetails() {
     });
   }, []);
 
+  //pdf download function part start
+  // const ComponentsRef = useRef();
+  // const handlePrint =useReactToPrint({
+  //   content:()=> ComponentsRef.Current,
+  //   DocumentTitle:"Appointment Report",
+  //   onafterprint :()=> alert("Users Report Successfully Download !"),
+
+  // })
+  const componentsRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentsRef.current,  // Fixed the typo here
+    documentTitle: 'Appointment Report',
+    onAfterPrint: () => alert('Users Report Successfully Downloaded!'),
+  });
+
+
+
+
   return (
     <div>
       <Nav />
       <h1>Nurse Details Display Page</h1>
-      <div>
+      <div ref={componentsRef}>
         {nurseDetails && nurseDetails.map((nurseDetail, i) => (
           <div key={i}>
             <NurseDetail {...nurseDetail} />
           </div>
         ))}
       </div>
+      <button onClick={handlePrint}>Download Report</button>
     </div>
   );
 }
 
 export default NurseDetails;
+
 

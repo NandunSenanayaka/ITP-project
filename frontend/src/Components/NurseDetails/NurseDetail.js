@@ -44,6 +44,8 @@ function NurseDetail({ _id, name, nic, email, phone, appnumber, rnumber, time, d
         
       <button><Link to={`/appoinmentdetails/${_id}`}>Update</Link></button>
         <button onClick={deleteHandler}>Delete</button>
+        
+        
       </div>
     </div>
   );
