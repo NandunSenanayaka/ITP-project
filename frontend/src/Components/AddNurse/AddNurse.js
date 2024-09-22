@@ -101,7 +101,7 @@ function AddNurse() {
     <div>
       <Nav />
       <div className="form-container">
-        <h1>Add Nurse Details</h1>
+        <h1>Add Appointment Details</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Name</label>

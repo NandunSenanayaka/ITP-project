@@ -53,7 +53,7 @@ function NurseDetails() {
     <div className="nurse-details-page">
       <Nav />
       <div className="content-wrapper">
-        <h1 className="title">Nurse Details</h1>
+        <h1 className="title">Appointment Details</h1>
 
         <div className="search-section">
           <input

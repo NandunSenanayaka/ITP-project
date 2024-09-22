@@ -95,7 +95,7 @@ function UpdateNurse() {
 
   return (
     <div className="update-container">
-      <h1>Update Nurse Details</h1>
+      <h1>Update Appointment Details</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Name</label>
