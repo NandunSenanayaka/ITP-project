@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import axios from "axios";
 import Nav from "../Nav/Nav";
@@ -21,14 +19,50 @@ function AddNurse() {
   });
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    // Validation conditions
+    if (name === "name" && !/^[a-zA-Z\s]*$/.test(value)) {
+      return; // Allow only text for name
+    }
+    if (name === "nic" && (!/^\d{0,12}$/.test(value) || value.length > 12)) {
+      return; // NIC should be a 12-digit number
+    }
+    if (name === "phone" && (!/^\d{0,10}$/.test(value) || value.length > 10)) {
+      return; // Phone number should be 10 digits
+    }
+    if (name === "appnumber" && (!/^\d*$/.test(value))) {
+      return; // Appointment number should only allow digits
+    }
+    if (name === "rnumber" && (!/^[1-9]$|^10$/.test(value))) {
+      return; // Room number should be between 1 to 10
+    }
+    if (name === "time" && !/^\d{2}:\d{2}$/.test(value)) {
+      return; // Time should be in HH:MM format
+    }
+    if (name === "diseases" && !/^[a-zA-Z\s]*$/.test(value)) {
+      return; // Diseases should contain only text
+    }
+    // if (name === "description" && !/^[a-zA-Z0-9\s]*$/.test(value)) {
+    //   return; // Description should allow text and numbers
+    // }
+
     setInputs((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value,
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Email validation added here
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(inputs.email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
     sendRequest()
       .then(() => {
         alert("Data saved successfully!");
@@ -43,23 +77,22 @@ function AddNurse() {
   const sendRequest = async () => {
     const data = {
       name: inputs.name,
-        nic: inputs.nic,
-        email: inputs.email,
-        phone: Number(inputs.phone),
-        appnumber: Number(inputs.appnumber),
-        rnumber: Number(inputs.rnumber),
-        time: inputs.time,
-        diseases: inputs.diseases,
-        description: inputs.description,
-    }
-    console.log(data)
+      nic: inputs.nic,
+      email: inputs.email,
+      phone: Number(inputs.phone),
+      appnumber: Number(inputs.appnumber),
+      rnumber: Number(inputs.rnumber),
+      time: inputs.time,
+      diseases: inputs.diseases,
+      description: inputs.description,
+    };
+    console.log(data);
     try {
       const response = await axios.post("http://localhost:5000/nurses", data);
-      console.log("dsfsdfsdfsdfs");
-      console.log(response.data); // Log the response data for debugging
+      console.log("Response data:", response.data);
       return response.data;
     } catch (error) {
-      console.error("Error sending request:", error); // Log the error for debugging
+      console.error("Error sending request:", error);
       throw error;
     }
   };
@@ -106,7 +139,7 @@ function AddNurse() {
           <div className="form-group">
             <label>Phone Number</label>
             <input
-              type="number"
+              type="tel"
               name="phone"
               onChange={handleChange}
               value={inputs.phone}

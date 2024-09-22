@@ -23,7 +23,6 @@ function UpdateNurse() {
   useEffect(() => {
     const fetchHandler = async () => {
       await axios
-
         .get(`http://localhost:5000/nurses/${id}`)
         .then((res) => res.data)
         .then((data) => setInputs(data.nurse1 || {})); // Added fallback for undefined
@@ -49,20 +48,52 @@ function UpdateNurse() {
   };
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    // Validation conditions
+    if (name === "name" && !/^[a-zA-Z\s]*$/.test(value)) {
+      return; // Allow only letters and spaces for name
+    }
+    if (name === "nic" && (!/^\d{0,12}$/.test(value) || value.length > 12)) {
+      return; // NIC should be a 12-digit number
+    }
+    if (name === "phone" && (!/^\d{0,10}$/.test(value) || value.length > 10)) {
+      return; // Phone number should be 10 digits
+    }
+    if (name === "appnumber" && !/^\d*$/.test(value)) {
+      return; // Appointment number should only allow digits
+    }
+    if (name === "rnumber" && (!/^[1-9]$|^10$/.test(value))) {
+      return; // Room number should be between 1 and 10
+    }
+    if (name === "diseases" && !/^[a-zA-Z\s]*$/.test(value)) {
+      return; // Diseases should contain only text
+    }
+    // if (name === "description" && !/^[a-zA-Z0-9\s]*$/.test(value)) {
+    //   return; // Description should allow text and numbers
+    // }
+
     setInputs((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value,
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(inputs.email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
     console.log(inputs);
     sendRequest().then(() => history("/appoinmentdetails"));
   };
 
   return (
-    
     <div className="update-container">
       <h1>Update Nurse Details</h1>
       <form onSubmit={handleSubmit}>
@@ -102,7 +133,7 @@ function UpdateNurse() {
         <div className="form-group">
           <label>Phone Number</label>
           <input
-            type="number"
+            type="tel"
             name="phone"
             onChange={handleChange}
             value={inputs.phone || ""}
